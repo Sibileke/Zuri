@@ -9,13 +9,15 @@ const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fri
 function updateDateTime(){
     const now = new Date();
     const dayOfWeek = daysOfWeek[now.getUTCDate()];
-    const formattedTime = now.toLocaleString('en-US', {timeZone:'UTC'});
+    const utcTime = now.getTime();
 
     slackUserName.textContent = "Ibileke Samuel";
-    currentDayOfTheWeek.textContent = dayOfWeek
-    currentUTCTime.textContent = formattedTime
-
+    currentDayOfTheWeek.textContent = dayOfWeek;
+    currentUTCTime.textContent = utcTime;
+    
 }
+setInterval(updateDateTime, 1000);
+
 updateDateTime();
 
 });
